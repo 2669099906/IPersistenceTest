@@ -1,10 +1,10 @@
-<mapper namespace="user">
+<mapper namespace="com.zxr.dao.IUserDao">
 
-   <select id="selectList" resultType="com.zxr.pojo.User">
+   <select id="findAll" resultType="com.zxr.pojo.User">
        select * from user
    </select>
 
-    <select id="selectOne" resultType="com.zxr.pojo.User" parameterType="com.zxr.pojo.User">
+    <select id="findByCondition" resultType="com.zxr.pojo.User" parameterType="com.zxr.pojo.User">
         select * from user where id = #{id} and username = #{username}
     </select>
 
