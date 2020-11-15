@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <mapper namespace="com.zxr.mapper.UserMapper">
 
 <!--   <select id="selectList" resultType="com.zxr.pojo.User">-->
@@ -9,6 +10,16 @@
 <!--    </select>-->
     <select id="findAll" resultType="com.zxr.pojo.User">
         select * from user
+=======
+<mapper namespace="com.zxr.dao.IUserDao">
+
+   <select id="findAll" resultType="com.zxr.pojo.User">
+       select * from user
+   </select>
+
+    <select id="findByCondition" resultType="com.zxr.pojo.User" parameterType="com.zxr.pojo.User">
+        select * from user where id = #{id} and username = #{username}
+>>>>>>> 9961a3e3ad8d06fccfbe91a608604bc9f987d9a1
     </select>
 
     <update id="updateById" parameterType="com.zxr.pojo.User">
