@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../IPersistence/pom.xml" />
+        <option value="$PROJECT_DIR$/../mybatis_quickStart/pom.xml" />
       </list>
     </option>
   </component>

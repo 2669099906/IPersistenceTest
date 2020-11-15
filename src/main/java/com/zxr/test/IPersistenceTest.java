@@ -1,6 +1,7 @@
 package com.zxr.test;
 
 import com.zxr.io.Resources;
+import com.zxr.mapper.UserMapper;
 import com.zxr.pojo.User;
 import com.zxr.sqlSession.SqlSession;
 import com.zxr.sqlSession.SqlSessionFactory;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public class IPersistenceTest {
 
-    public static void main(String[] args) throws Exception {
+    public static void main1(String[] args) throws Exception {
         InputStream resourceAsStream = Resources.getResourceAsStream("./sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -30,6 +31,18 @@ public class IPersistenceTest {
         System.out.println(userResult.toString());
         List<User> objects = sqlSession.selectList("user.selectList");
         System.out.println(objects);
+    }
+
+    public static void main(String[] args) throws PropertyVetoException, DocumentException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("./sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = new User();
+        user.setId(6);
+        user.setUsername("max");
+        Integer insert = mapper.insert(user);
+        System.out.println(insert);
     }
 
 }
