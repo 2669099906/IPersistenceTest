@@ -6,15 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IPersistence" />
-<<<<<<< HEAD
-        <module name="IPersistence_test" />
-        <module name="mybatis_quickStart" />
-=======
         <module name="IPersistenceTest" />
-        <module name="IPersistence_test" />
->>>>>>> 9961a3e3ad8d06fccfbe91a608604bc9f987d9a1
+        <module name="IPersistence" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="IPersistence" target="1.8" />
+      <module name="IPersistenceTest" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

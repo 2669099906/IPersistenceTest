@@ -7,7 +7,10 @@ import com.zxr.pojo.User;
 import com.zxr.sqlSession.SqlSession;
 import com.zxr.sqlSession.SqlSessionFactory;
 import com.zxr.sqlSession.SqlSessionFactoryBuilder;
+import org.dom4j.DocumentException;
+import org.junit.Test;
 
+import java.beans.PropertyVetoException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -40,16 +43,26 @@ public class IPersistenceTest {
         System.out.println(byCondition);
     }
 
-    public static void main(String[] args) throws PropertyVetoException, DocumentException {
-        InputStream resourceAsStream = Resources.getResourceAsStream("./sqlMapConfig.xml");
+    @Test
+    public  void insertTest() throws PropertyVetoException, DocumentException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> all = mapper.findAll();
+        System.out.println(all);
         User user = new User();
         user.setId(6);
         user.setUsername("max");
-        Integer insert = mapper.insert(user);
-        System.out.println(insert);
+        user.setPassword("111111");
+        user.setBirthday("2020-11-23");
+//        Integer insert = mapper.insert(user);
+//        System.out.println(insert);
+        user.setPassword("1122");
+        Integer integer = mapper.updateById(user);
+        System.out.println(integer);
+        Integer integer1 = mapper.deleteById(user);
+        System.out.println(integer1);
     }
 
 }

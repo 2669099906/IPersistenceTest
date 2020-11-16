@@ -1,7 +1,7 @@
 <configuration>
     <dataSource>
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://119.45.236.54:3306/mybatis?characterEncoding=utf8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8" />
         <property name="username" value="root" />
         <property name="password" value="123456" />
     </dataSource>

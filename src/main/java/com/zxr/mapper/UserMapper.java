@@ -12,7 +12,7 @@ public interface UserMapper {
 
     List<User> findAll();
 
-    Integer deleteById();
+    Integer deleteById(User user);
 
     Integer insert(User user);
 
